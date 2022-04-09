@@ -1,0 +1,117 @@
+*{
+    box-sizing: border-box;
+}
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: rgb(29, 29, 29);
+}
+.controls-buttons{
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(27, 89, 97, 0.9);
+    z-index: 2;
+}
+.controls-buttons span{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    background-color: #fdfd51;
+    color: #367e66;
+    padding: 15px 25px;
+    font-size: 30px;
+    text-align: center;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.info{
+    max-width:800px;
+    width: 100%;
+   
+    margin: 20px auto 0;
+    background-color: rgb(11, 75, 64);
+    padding: 20px;
+    font-size: 24px;
+    overflow: hidden;
+    border: 3px solid #4eaa8bcc;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 5px;
+    color: #7fffd4cc;
+}
+.memory-game-blocks{
+    display: flex;
+    justify-content: center;
+    max-width:700px;
+
+    flex-wrap: wrap;
+    margin: 20px auto;
+
+}
+.memory-game-blocks.no-clicking{
+    pointer-events: none;
+}
+.memory-game-blocks .game-block{
+    height: 100px;
+    transition: transform .5s;
+    transform-style:  preserve-3d;
+    cursor: pointer;
+    position: relative;
+    flex: 1 0 100px;
+    
+    margin: 0 10px 20px;
+    max-width: 100px;
+    
+    border-radius: 50%;
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;;
+
+  
+
+}
+.memory-game-blocks .game-block .front{
+    background-color:  #333;
+    line-height: 100px;
+    border-radius: 50%;
+}
+.memory-game-blocks .game-block .front::before{
+    content: "??";
+    color: #fff;
+    font-size: 40px;
+    font-weight: bold;
+}
+.memory-game-blocks .game-block .back{
+    background-color: #4eaa8bcc;
+    transform: rotateY(180deg);
+    border-radius: 50%;
+}
+.memory-game-blocks .game-block .back img{
+    width: 100%;
+    max-width: 100px;
+    max-height: 100px;
+    /* margin-top: 30px; */
+    border-radius: 50%;
+}
+.memory-game-blocks .game-block .face{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    backface-visibility: hidden;
+    border: 5px solid #7fffd4cc;
+
+}
+.memory-game-blocks .game-block.is-flipped,
+.memory-game-blocks .game-block.matched{
+
+    transform: rotateY(180deg);
+    pointer-events: none;
+
+}
+.tries span,
+.name span{
+    color: #fdfd51;
+}
